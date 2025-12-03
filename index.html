@@ -79,6 +79,64 @@
           все таки мы тут не книжки читаем. <br>
           желаю всем посетителям всех хорошестей и приятного времяпрепровождения ^_^<br><br>
 
+
+          последнее прослушанное:
+          <div id="listen">
+если вы это видите продолжительное время значит сайт для отображения треков не работает...
+            </div>
+
+          <style>
+            #listen {
+              width: 250px;
+              display: flex;
+                    align-items: center;
+              padding: 7px;
+            }
+            
+            #listen #track {
+              text-align: left;
+              padding-left: 17px;
+            }
+            
+            #listen img {
+            width: 60px;
+            height: 60px;
+            }
+            </style>
+            
+            <script>
+            const USERNAME = "wowjbblegend";
+            const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${USERNAME}/latest-song`;
+            
+            const getTrack = async () => {
+                const request = await fetch(BASE_URL);
+                const json = await request.json();
+                let status
+            
+                let isPlaying = json.track['@attr']?.nowplaying || false;
+            
+            
+                if (!isPlaying) {
+                    htmllistenRN = ``;
+                }
+            
+                document.getElementById("listen").innerHTML = `
+                <img src="${json.track.image[1]['#text']}">
+                <div id="track">
+                <b id="trackName">${json.track.name}</b><br>
+                <i id="artistName">${json.track.artist['#text']}</i>
+                ${htmllistenRN}
+                </div>
+                `
+            };
+            
+            getTrack();
+            setInterval(() => { getTrack(); }, 10000);
+            
+            </script>            <p><small>powered by <a href="https://github.com/biancarosa/lastfm-last-played"
+                        target="_blank">@biancarosa/lastfm-last-played</a></small></p><br><br>
+
+
           мое настроение нынче:
           <a href="https://www.imood.com/users/ystrica">
             <img src="https://moods.imood.com/display/uname-ystrica/imood.gif">
