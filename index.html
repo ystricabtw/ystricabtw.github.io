@@ -105,35 +105,36 @@
             </style>
             
             <script>
-            const USERNAME = "wowjbblegend";
-            const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${USERNAME}/latest-song`;
-            
-            const getTrack = async () => {
-                const request = await fetch(BASE_URL);
-                const json = await request.json();
-                let status
-            
-                let isPlaying = json.track['@attr']?.nowplaying || false;
-            
-            
-                if (!isPlaying) {
-                    htmllistenRN = ``;
-                }
-            
-                document.getElementById("listen").innerHTML = `
-                <img src="${json.track.image[1]['#text']}">
-                <div id="track">
-                <b id="trackName">${json.track.name}</b><br>
-                <i id="artistName">${json.track.artist['#text']}</i>
-                ${htmllistenRN}
-                </div>
-                `
-            };
-            
-            getTrack();
-            setInterval(() => { getTrack(); }, 10000);
-            
-            </script>            <p><small>powered by <a href="https://github.com/biancarosa/lastfm-last-played"
+              const USERNAME = "wowjbblegend";
+              const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${USERNAME}/latest-song`;
+              
+              const getTrack = async () => {
+                  const request = await fetch(BASE_URL);
+                  const json = await request.json();
+              
+                  let isPlaying = json.track['@attr']?.nowplaying || false;
+              
+                  
+                  let htmllistenRN = "";
+              
+                  if (isPlaying) {
+                      htmllistenRN = `<div class="now-playing">▶ Сейчас играет</div>`;
+                  }
+              
+                  document.getElementById("listen").innerHTML = `
+                      <img src="${json.track.image[1]['#text']}">
+                      <div id="track">
+                          <b id="trackName">${json.track.name}</b><br>
+                          <i id="artistName">${json.track.artist['#text']}</i>
+                          ${htmllistenRN}
+                      </div>
+                  `;
+              };
+              
+              getTrack();
+              setInterval(getTrack, 10000);
+              </script>
+                          <p><small>powered by <a href="https://github.com/biancarosa/lastfm-last-played"
                         target="_blank">@biancarosa/lastfm-last-played</a></small></p>
 
 
