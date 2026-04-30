@@ -18,13 +18,13 @@ body {
     font-family: GoogleSansFlexExtraBold;
 }
 
-/* А это сработает ТОЛЬКО на странице девайсов */
+
 body.devices-page {
   overflow-y: auto !important; 
   min-height: 100vh;
 }
 
-/* Исправляем контейнер тоже только для этой страницы */
+
 .devices-page .horizontal-container {
   height: auto;
   overflow-y: visible;
@@ -36,33 +36,31 @@ body.devices-page {
 }
 
 .md3-pill {
-    /* 1. Вместо inline-flex ставим просто flex или block */
+ 
     display: flex; 
     align-items: center;
-    justify-content: center; /* Центрируем текст по горизонтали */
+    justify-content: center; 
 
-    /* 2. Жесткие размеры (подбери под себя) */
-    width: 800px;  /* Фиксированная ширина */
-    height: 250px;  /* Фиксированная высота */
+    width: 800px;  
+    height: 250px; 
     
-    /* 3. Убираем padding, так как размеры теперь фиксированы */
+  
     padding: 0; 
 
-    /* Остальное оставляем как было */
     border-radius: 999px; 
-    background-color: #00c067; /* Твой сочный цвет */
+    background-color: #00c067; 
     color: #1d192b;
     border: none;
     cursor: pointer;
     
-    /* Чтобы текст не вылезал, если его станет слишком много */
+
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; 
 
     transition: background-color 0.2s, box-shadow 0.2s;
 }
-    /* Текст */
+
 
     .font-first {
         font-family: 'Inter', InterMedium;
@@ -72,33 +70,30 @@ body.devices-page {
         font-family: 'Inter', InterMedium;
       }
       
-  /* Эффект при наведении */
+
   .md3-pill:hover {
     background-color: #00ae5d;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
 
   .md3-lastfm {
-    /* 1. Вместо inline-flex ставим просто flex или block */
+    
     display: flex; 
     align-items: center;
-    justify-content: center; /* Центрируем текст по горизонтали */
+    justify-content: center;
 
-    /* 2. Жесткие размеры (подбери под себя) */
-    width: 400px;  /* Фиксированная ширина */
-    height: 100px;  /* Фиксированная высота */
     
-    /* 3. Убираем padding, так как размеры теперь фиксированы */
+    width: 400px; 
+    height: 100px;  
+    
     padding: 0; 
 
-    /* Остальное оставляем как было */
     border-radius: 999px; 
-    background-color: #00c067; /* Твой сочный цвет */
+    background-color: #00c067; 
     color: #1d192b;
     border: none;
     cursor: pointer;
-    
-    /* Чтобы текст не вылезал, если его станет слишком много */
+
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; 
@@ -107,7 +102,6 @@ body.devices-page {
 }
 
 
-    /* Текст */
 
     .font-first {
         font-family: 'GoogleSansFlexExtraBold', GoogleSansFlexExtraBold;
@@ -116,8 +110,7 @@ body.devices-page {
       .font-second {
         font-family: 'Inter', InterMedium;
       }
-      
-  /* Эффект при наведении */
+
   .md3-pill:hover {
     background-color: #00ae5d;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -133,7 +126,7 @@ body.devices-page {
     z-index: -1;
 }
 
-/* Контейнер для скролла */
+
 .horizontal-container {
     display: flex;
     width: 100vw;
@@ -143,7 +136,7 @@ body.devices-page {
     scroll-behavior: smooth; 
 }
 
-/* Прячем скроллбар */
+
 .horizontal-container::-webkit-scrollbar {
     display: none;
 }
@@ -159,7 +152,7 @@ body.devices-page {
     padding: 12px 24px;
     background: #7fdd13;
     color: white;
-    border-radius: 28px; /* Чуть добавил скругления для MD3 */
+    border-radius: 28px; 
     border: none;
     font-size: 1.2rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -170,23 +163,23 @@ body.devices-page {
     position: fixed;
     width: 300px;
     height: 300px;
-    background: #00a859; /* Зеленый с картинки */
-    border-radius: 30px; /* Скругление основного квадрата */
+    background: #00a859;
+    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Создаем второй слой печеньки */
+
 .cookie::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    background: inherit; /* Берем тот же цвет */
-    border-radius: inherit; /* То же скругление */
-    transform: rotate(45deg); /* Поворачиваем на 45 градусов */
+    background: inherit; 
+    border-radius: inherit;
+    transform: rotate(45deg);
 }
  
 .spinner {
@@ -197,7 +190,7 @@ body.devices-page {
     align-items: center;
     justify-content: center;
   
-    /* Применяем анимацию: название | время | равномерно | бесконечно */
+    
     animation: spin 15s linear infinite;
   }
   
@@ -213,8 +206,8 @@ body.devices-page {
 
   .fixed {
     position: fixed;
-    top: 0;   /* Прижать к верхнему краю */
-    right: 0; /* Прижать к правому краю */
+    top: 0;  
+    right: 0;
     width: 100%;
 }
 
@@ -224,12 +217,12 @@ body.devices-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Плавный переход в течение 0.5 секунд */
+    
     transition: transform 0.3s ease-out; 
   }
 
   .rotate-box:hover {
-    /* Поворот на 360 градусов */
+
     transform: rotate(45deg); 
   }
 
@@ -237,8 +230,8 @@ body.devices-page {
     position: fixed;
     width: 150px;
     height: 150px;
-    background: #00be65; /* Зеленый с картинки */
-    border-radius: 30px; /* Скругление основного квадрата */
+    background: #00be65; 
+    border-radius: 30px; 
     display: flex;
     align-items: center;
     justify-content: center;
