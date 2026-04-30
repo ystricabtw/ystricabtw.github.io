@@ -1,0 +1,315 @@
+
+@font-face {
+    font-family: 'Inter'; 
+    src: url('fonts/InterMedium.ttf')
+    
+}
+
+
+@font-face {
+    font-family: 'GoogleSansFlexExtraBold'; 
+    src: url('fonts/GoogleSansFlexExtraBold.ttf')
+    
+}
+body {
+    margin: 0;
+    background: #b4dd1e; 
+    overflow-y: hidden; 
+    font-family: GoogleSansFlexExtraBold;
+}
+
+/* А это сработает ТОЛЬКО на странице девайсов */
+body.devices-page {
+  overflow-y: auto !important; 
+  min-height: 100vh;
+}
+
+/* Исправляем контейнер тоже только для этой страницы */
+.devices-page .horizontal-container {
+  height: auto;
+  overflow-y: visible;
+}
+
+.zagolovok {
+
+    font-family: GoogleSansFlexExtraBold;
+}
+
+.md3-pill {
+    /* 1. Вместо inline-flex ставим просто flex или block */
+    display: flex; 
+    align-items: center;
+    justify-content: center; /* Центрируем текст по горизонтали */
+
+    /* 2. Жесткие размеры (подбери под себя) */
+    width: 800px;  /* Фиксированная ширина */
+    height: 250px;  /* Фиксированная высота */
+    
+    /* 3. Убираем padding, так как размеры теперь фиксированы */
+    padding: 0; 
+
+    /* Остальное оставляем как было */
+    border-radius: 999px; 
+    background-color: #00c067; /* Твой сочный цвет */
+    color: #1d192b;
+    border: none;
+    cursor: pointer;
+    
+    /* Чтобы текст не вылезал, если его станет слишком много */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+    /* Текст */
+
+    .font-first {
+        font-family: 'Inter', InterMedium;
+    }
+      
+      .font-second {
+        font-family: 'Inter', InterMedium;
+      }
+      
+  /* Эффект при наведении */
+  .md3-pill:hover {
+    background-color: #00ae5d;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .md3-lastfm {
+    /* 1. Вместо inline-flex ставим просто flex или block */
+    display: flex; 
+    align-items: center;
+    justify-content: center; /* Центрируем текст по горизонтали */
+
+    /* 2. Жесткие размеры (подбери под себя) */
+    width: 400px;  /* Фиксированная ширина */
+    height: 100px;  /* Фиксированная высота */
+    
+    /* 3. Убираем padding, так как размеры теперь фиксированы */
+    padding: 0; 
+
+    /* Остальное оставляем как было */
+    border-radius: 999px; 
+    background-color: #00c067; /* Твой сочный цвет */
+    color: #1d192b;
+    border: none;
+    cursor: pointer;
+    
+    /* Чтобы текст не вылезал, если его станет слишком много */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+
+    /* Текст */
+
+    .font-first {
+        font-family: 'GoogleSansFlexExtraBold', GoogleSansFlexExtraBold;
+    }
+      
+      .font-second {
+        font-family: 'Inter', InterMedium;
+      }
+      
+  /* Эффект при наведении */
+  .md3-pill:hover {
+    background-color: #00ae5d;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  } 
+
+.background-plate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #72ff6a 100%, #a8ff9e 100%);
+    z-index: -1;
+}
+
+/* Контейнер для скролла */
+.horizontal-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth; 
+}
+
+/* Прячем скроллбар */
+.horizontal-container::-webkit-scrollbar {
+    display: none;
+}
+
+.page {
+    flex: 0 0 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.md3-button {
+    padding: 12px 24px;
+    background: #7fdd13;
+    color: white;
+    border-radius: 28px; /* Чуть добавил скругления для MD3 */
+    border: none;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.cookie {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: #00a859; /* Зеленый с картинки */
+    border-radius: 30px; /* Скругление основного квадрата */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Создаем второй слой печеньки */
+.cookie::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Берем тот же цвет */
+    border-radius: inherit; /* То же скругление */
+    transform: rotate(45deg); /* Поворачиваем на 45 градусов */
+}
+ 
+.spinner {
+    width: 100px;
+    height: 100px;
+    font-size: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    /* Применяем анимацию: название | время | равномерно | бесконечно */
+    animation: spin 15s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+  .fixed {
+    position: fixed;
+    top: 0;   /* Прижать к верхнему краю */
+    right: 0; /* Прижать к правому краю */
+    width: 100%;
+}
+
+.rotate-box {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Плавный переход в течение 0.5 секунд */
+    transition: transform 0.3s ease-out; 
+  }
+
+  .rotate-box:hover {
+    /* Поворот на 360 градусов */
+    transform: rotate(45deg); 
+  }
+
+  .cookie1 {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    background: #00be65; /* Зеленый с картинки */
+    border-radius: 30px; /* Скругление основного квадрата */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.md3-mood {
+   
+    text-align: left;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+
+   
+    width: 300px;  
+    height: 100px;  
+    
+
+    padding: 0; 
+    
+
+
+    border-radius: 999px; 
+    background-color: #00c067;
+    color: #1d192b;
+    border: none;
+    cursor: pointer;
+    
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.md3-banners {
+   
+  text-align: left;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+
+ 
+  width: 400px;  
+  height: 100px;  
+  
+
+  padding: 0; 
+  
+
+
+  border-radius: 999px; 
+  background-color: #00c067;
+  color: #1d192b;
+  border: none;
+  cursor: pointer;
+  
+  
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+a {
+    color: #2c893d; 
+    text-decoration: underline; 
+}
+
+
+a:hover {
+    color: #216a2e; 
+}
