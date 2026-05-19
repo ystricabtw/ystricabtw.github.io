@@ -227,7 +227,7 @@ body.devices-page {
   }
 
   .cookie1 {
-    position: fixed;
+    position: absolute;
     width: 150px;
     height: 150px;
     background: #00be65; 
